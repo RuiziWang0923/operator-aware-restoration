@@ -11,7 +11,6 @@ import csv
 import hashlib
 import json
 import os
-import re
 from pathlib import Path
 
 import numpy as np
@@ -36,46 +35,34 @@ def write_csv(path, data):
         writer.writerows(data)
 
 
-def verify_manuscript_tables(tables):
-    """Compare displayed manuscript rows at their stated rounding precision."""
-    manuscript = (ROOT / "manuscript/manuscript.tex").read_text()
-    labels = {"fixed_backbone": "fixed", "calibrated_scores": "calibrated"}
-    def displayed(name):
-        label = labels.get(name, name)
-        blocks = [block for block in re.findall(
-            r"\\begin\{table\}.*?\\end\{table\}", manuscript, re.DOTALL)
-            if f"\\label{{tab:{label}}}" in block]
-        if len(blocks) != 1:
-            raise ValueError(f"Expected one manuscript table with label tab:{label}")
-        text = blocks[0]
-        lines=[x for x in text.splitlines() if " & " in x]
-        return [[float(v) for v in re.findall(r"(?<![A-Za-z_])[-+]?\d+\.\d+|(?<![A-Za-z_])\d+",x.split(" & ",1)[1])] for x in lines if re.search(r" & [-\d]",x)]
-    checks=0
-    def compare(actual,expected,decimals):
-        nonlocal checks
-        assert len(actual)==len(expected),(actual,expected)
-        for a,e,p in zip(actual,expected,decimals):
-            assert abs(a-e)<=.5001*10**(-p),(a,e,p)
-            checks+=1
-    for name,keys,precision in [
-        ("fixed_backbone",["parameters_m","raw_gain_db","jpeg_gain_db","losses_gt_0_1_db","ms_image"],[2,4,4,0,1]),
-        ("operators",["Ur_minus_B","Yr_minus_B","Yr_minus_Ur","ci_low","ci_high"],[4]*5),
-        ("calibrated_scores",["official_psnr_db","official_mse_x1e4","locked_psnr_db","locked_mse_x1e4"],[4]*4),
-        ("quadrants",["both","base_only","input_only","neither"],[0]*4),
-        ("geometry",["mean_gain_db","losses","n","median_lambda_star","median_eta_x255"],[3,0,0,3,3])]:
-        shown=displayed(name)
-        assert len(shown)==len(tables[name]),(name,len(shown),len(tables[name]))
-        for r,e in zip(tables[name],shown):compare([r[k] for k in keys],e,precision)
-    order=["F4M","F4P","F6M","F6P"]
-    for m,e in zip(order,displayed("weights")):
-        r=next(r for r in tables["weights"] if r["mixture"]==m)
-        compare([r[k] for k in CANDIDATES],e,[4]*6)
-    for r,e in zip(tables["reachability"],displayed("reachability")):
-        compare([r[k] for k in ["active","n","mean_bound_x1e4","rgb_percent","active_input_loss","input_loss_n"]],e,[0,0,3,2,0,0])
-    for r,e in zip(tables["capacity"],displayed("capacity")):
-        compare([float(r["parameters_m"]),float(r["psnr"])],e,[2,3])
+def verify_reference_tables(tables):
+    """Compare every reference value at its declared rounding precision."""
+    reference = json.loads((ROOT / "data/reference_tables.json").read_text())
+    if reference["schema_version"] != 1 or reference["numeric_values"] != 208:
+        raise ValueError("Expected reference schema 1 with 208 numeric values")
+    if set(reference["tables"]) != set(tables):
+        raise ValueError("Calculated and reference table sets differ")
+    checks = 0
+    for name, specification in reference["tables"].items():
+        row_key = specification["row_key"]
+        actual = {str(row[row_key]): row for row in tables[name]}
+        expected = specification["rows"]
+        if (len(actual) != len(tables[name]) or len(expected) != len(actual)
+                or set(actual) != {row["id"] for row in expected}):
+            raise ValueError(f"Calculated and reference row identities differ: {name}")
+        columns, decimals = specification["columns"], specification["decimals"]
+        if len(columns) != len(decimals):
+            raise ValueError(f"Reference column/precision mismatch: {name}")
+        for row in expected:
+            if len(row["values"]) != len(columns):
+                raise ValueError(f"Reference value count mismatch: {name}/{row['id']}")
+            for column, value, precision in zip(columns, row["values"], decimals):
+                observed = float(actual[row["id"]][column])
+                if not abs(observed - value) <= .5001 * 10 ** (-precision):
+                    raise ValueError((name, row["id"], column, observed, value, precision))
+                checks += 1
     if checks != 208:
-        raise ValueError(f"Expected 208 manuscript numeric comparisons, got {checks}")
+        raise ValueError(f"Expected 208 numeric comparisons, got {checks}")
     return checks
 
 
@@ -259,19 +246,19 @@ def main():
             rng=np.random.default_rng(RNG_SEED+ROLES.index(role))
             c=contrast(arrays[role][left],arrays[role][right],rng,5000)
             contrasts.append({"split_role":role,"comparison":f"{left}-{right}","mean_psnr_gain_db":c["mean_psnr_gain_db"],"ci_low":c["psnr_gain_ci95"][0],"ci_high":c["psnr_gain_ci95"][1]})
-    # Check the independently reconstructed PSNR fits against manuscript precision.
+    # Check the independently reconstructed PSNR fits against reference precision.
     assert np.allclose(fits["F4P"]["weights"],[.0779,.4345,.4876,0],atol=6e-5)
     assert np.allclose(fits["F6P"]["weights"],[.0182,.5819,.3739,0,0,.0261],atol=6e-5)
-    checked_values=verify_manuscript_tables(tables)
+    checked_values=verify_reference_tables(tables)
     for t,data in tables.items():write_csv(out/f"{t}.csv",data)
     make_plots(out,groups,arrays,fits,geo,contrasts)
-    result={"integrity":integrity,"manuscript_numeric_values_checked":checked_values,"calibration":fits,"tables":tables,"contrasts":contrasts,
+    result={"integrity":integrity,"reference_numeric_values_checked":checked_values,"calibration":fits,"tables":tables,"contrasts":contrasts,
         "source_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/"data").iterdir() if p.is_file()},
-        "coverage":"eight numeric manuscript tables; quantitative data for Figures 1,2,3,5,6; Figure 4 remains supplied artwork",
+        "coverage":"eight numeric reference tables and quantitative data for Figures 1,2,3,5,6; figure artwork is not included",
         "recorded_matched_operator_intervals":{role:summary["splits"][role]["comparisons"]["matched residual weighting"]["psnr_gain_ci95"] for role in ROLES},
         "interval_note":"Recorded analysis intervals differ from the later manuscript (official upper endpoint 0.015774 versus displayed 0.0150). The documented manuscript protocol resets the RNG to seed 20261013 plus role index (selection=0, official=1, locked=2) for every contrast; 5000 paired resamples. This implementation of the documented recipe reproduces all displayed Table 3 intervals and the textual F4P intervals. The retained sufficient statistics support an independent reconstruction of the reported values."}
     (out/"results.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n")
-    print(json.dumps({"records":len(records),"tables":len(tables),"quantitative_figures":5,"manuscript_values_checked":checked_values,"integrity_passed":True,"psnr_weights_match_manuscript":True}))
+    print(json.dumps({"records":len(records),"tables":len(tables),"quantitative_figures":5,"reference_values_checked":checked_values,"integrity_passed":True,"psnr_weights_match_reference":True}))
 
 
 if __name__=="__main__":main()
