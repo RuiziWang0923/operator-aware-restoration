@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "numeric_values": 208,
+  "tables": {
+    "fixed_backbone": {
+      "row_key": "method",
+      "columns": [
+        "parameters_m",
+        "raw_gain_db",
+        "jpeg_gain_db",
+        "losses_gt_0_1_db",
+        "ms_image"
+      ],
+      "decimals": [
+        2,
+        4,
+        4,
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "id": "ARISE",
+          "values": [
+            24.8,
+            0.0339,
+            0.0348,
+            0,
+            345.2
+          ]
+        },
+        {
+          "id": "Spectral (M)",
+          "values": [
+            24.6,
+            0.055,
+            0.0462,
+            27,
+            337.6
+          ]
+        },
+        {
+          "id": "Phase context (N)",
+          "values": [
+            24.79,
+            0.0627,
+            0.0567,
+            22,
+            328.1
+          ]
+        },
+        {
+          "id": "Phase-guided",
+          "values": [
+            24.62,
+            0.0574,
+            0.0521,
+            21,
+            327.6
+          ]
+        },
+        {
+          "id": "Dual-scale",
+          "values": [
+            24.81,
+            0.0703,
+            0.0638,
+            19,
+            331.5
+          ]
+        },
+        {
+          "id": "JOME",
+          "values": [
+            24.76,
+            0.1671,
+            0.1566,
+            12,
+            498.6
+          ]
+        }
+      ]
+    },
+    "operators": {
+      "row_key": "split",
+      "columns": [
+        "Ur_minus_B",
+        "Yr_minus_B",
+        "Yr_minus_Ur",
+        "ci_low",
+        "ci_high"
+      ],
+      "decimals": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "rows": [
+        {
+          "id": "selection",
+          "values": [
+            0.1993,
+            0.2139,
+            0.0146,
+            0.0055,
+            0.0236
+          ]
+        },
+        {
+          "id": "official",
+          "values": [
+            0.1597,
+            0.167,
+            0.0073,
+            -0.0005,
+            0.015
+          ]
+        },
+        {
+          "id": "locked",
+          "values": [
+            0.1921,
+            0.2088,
+            0.0167,
+            0.0054,
+            0.0282
+          ]
+        }
+      ]
+    },
+    "calibrated_scores": {
+      "row_key": "method",
+      "columns": [
+        "official_psnr_db",
+        "official_mse_x1e4",
+        "locked_psnr_db",
+        "locked_mse_x1e4"
+      ],
+      "decimals": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "rows": [
+        {
+          "id": "base",
+          "values": [
+            34.3224,
+            5.989,
+            32.6214,
+            11.0316
+          ]
+        },
+        {
+          "id": "Ur",
+          "values": [
+            34.4821,
+            5.803,
+            32.8135,
+            10.6838
+          ]
+        },
+        {
+          "id": "Yr",
+          "values": [
+            34.4894,
+            5.804,
+            32.8302,
+            10.6581
+          ]
+        },
+        {
+          "id": "Uo",
+          "values": [
+            34.4821,
+            5.803,
+            32.8135,
+            10.6837
+          ]
+        },
+        {
+          "id": "Yo",
+          "values": [
+            34.4894,
+            5.804,
+            32.8302,
+            10.6581
+          ]
+        },
+        {
+          "id": "F4M",
+          "values": [
+            34.4814,
+            5.7506,
+            32.7895,
+            10.6425
+          ]
+        },
+        {
+          "id": "F4P",
+          "values": [
+            34.486,
+            5.7997,
+            32.8183,
+            10.6719
+          ]
+        },
+        {
+          "id": "F6M",
+          "values": [
+            34.4885,
+            5.7499,
+            32.7984,
+            10.6381
+          ]
+        },
+        {
+          "id": "F6P",
+          "values": [
+            34.4949,
+            5.8,
+            32.829,
+            10.6736
+          ]
+        }
+      ]
+    },
+    "quadrants": {
+      "row_key": "split",
+      "columns": [
+        "both",
+        "base_only",
+        "input_only",
+        "neither"
+      ],
+      "decimals": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "rows": [
+        {
+          "id": "selection",
+          "values": [
+            250,
+            10,
+            27,
+            13
+          ]
+        },
+        {
+          "id": "official",
+          "values": [
+            257,
+            6,
+            29,
+            8
+          ]
+        },
+        {
+          "id": "locked",
+          "values": [
+            172,
+            0,
+            19,
+            9
+          ]
+        }
+      ]
+    },
+    "geometry": {
+      "row_key": "model",
+      "columns": [
+        "mean_gain_db",
+        "losses",
+        "n",
+        "median_lambda_star",
+        "median_eta_x255"
+      ],
+      "decimals": [
+        3,
+        0,
+        0,
+        3,
+        3
+      ],
+      "rows": [
+        {
+          "id": "base",
+          "values": [
+            -5.349,
+            8,
+            8,
+            0.105,
+            0.786
+          ]
+        },
+        {
+          "id": "jome",
+          "values": [
+            -5.376,
+            8,
+            8,
+            0.109,
+            0.791
+          ]
+        },
+        {
+          "id": "1_RRay",
+          "values": [
+            -4.379,
+            8,
+            8,
+            0.164,
+            0.669
+          ]
+        },
+        {
+          "id": "2_Xreflect_Master",
+          "values": [
+            -5.163,
+            8,
+            8,
+            0.137,
+            0.734
+          ]
+        },
+        {
+          "id": "3_AIIALab",
+          "values": [
+            -4.854,
+            7,
+            8,
+            0.128,
+            0.776
+          ]
+        },
+        {
+          "id": "4_VIP Lab",
+          "values": [
+            -6.853,
+            8,
+            8,
+            0.105,
+            0.905
+          ]
+        },
+        {
+          "id": "5_YuFans",
+          "values": [
+            -6.026,
+            8,
+            8,
+            0.109,
+            0.915
+          ]
+        },
+        {
+          "id": "6_KLETech-CEVI",
+          "values": [
+            -3.54,
+            7,
+            8,
+            0.16,
+            0.679
+          ]
+        },
+        {
+          "id": "OPPO-baseline",
+          "values": [
+            -8.499,
+            8,
+            8,
+            0.098,
+            1.36
+          ]
+        }
+      ]
+    },
+    "weights": {
+      "row_key": "mixture",
+      "columns": [
+        "expert_0",
+        "expert_1",
+        "expert_2",
+        "expert_3",
+        "base",
+        "input"
+      ],
+      "decimals": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "rows": [
+        {
+          "id": "F4M",
+          "values": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "F4P",
+          "values": [
+            0.0779,
+            0.4345,
+            0.4876,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": "F6M",
+          "values": [
+            0.0,
+            0.9923,
+            0.0,
+            0.0,
+            0.0,
+            0.0077
+          ]
+        },
+        {
+          "id": "F6P",
+          "values": [
+            0.0182,
+            0.5819,
+            0.3739,
+            0.0,
+            0.0,
+            0.0261
+          ]
+        }
+      ]
+    },
+    "reachability": {
+      "row_key": "split",
+      "columns": [
+        "active",
+        "n",
+        "mean_bound_x1e4",
+        "rgb_percent",
+        "active_input_loss",
+        "input_loss_n"
+      ],
+      "decimals": [
+        0,
+        0,
+        3,
+        2,
+        0,
+        0
+      ],
+      "rows": [
+        {
+          "id": "selection",
+          "values": [
+            295,
+            300,
+            5.674,
+            3.6,
+            23,
+            23
+          ]
+        },
+        {
+          "id": "official",
+          "values": [
+            284,
+            300,
+            4.182,
+            2.44,
+            10,
+            14
+          ]
+        },
+        {
+          "id": "locked",
+          "values": [
+            194,
+            200,
+            7.626,
+            3.4,
+            9,
+            9
+          ]
+        }
+      ]
+    },
+    "capacity": {
+      "row_key": "model",
+      "columns": [
+        "parameters_m",
+        "psnr"
+      ],
+      "decimals": [
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "id": "refineX",
+          "values": [
+            8.2,
+            30.599
+          ]
+        },
+        {
+          "id": "PAST",
+          "values": [
+            21.74,
+            34.191
+          ]
+        },
+        {
+          "id": "JOME",
+          "values": [
+            24.76,
+            34.347
+          ]
+        },
+        {
+          "id": "ARISE",
+          "values": [
+            24.8,
+            34.226
+          ]
+        },
+        {
+          "id": "SiGMoid",
+          "values": [
+            26.13,
+            34.279
+          ]
+        },
+        {
+          "id": "6_KLETech-CEVI",
+          "values": [
+            27.4,
+            34.538
+          ]
+        },
+        {
+          "id": "PSU",
+          "values": [
+            45.6,
+            34.515
+          ]
+        },
+        {
+          "id": "NTR",
+          "values": [
+            142.5,
+            33.968
+          ]
+        },
+        {
+          "id": "ACVLAB",
+          "values": [
+            267.17,
+            31.689
+          ]
+        },
+        {
+          "id": "3_AIIALab",
+          "values": [
+            314.0,
+            35.38
+          ]
+        },
+        {
+          "id": "1_RRay",
+          "values": [
+            322.82,
+            36.169
+          ]
+        },
+        {
+          "id": "4_VIP Lab",
+          "values": [
+            404.0,
+            34.687
+          ]
+        },
+        {
+          "id": "5_YuFans",
+          "values": [
+            522.34,
+            34.906
+          ]
+        },
+        {
+          "id": "2_Xreflect_Master",
+          "values": [
+            545.52,
+            36.05
+          ]
+        }
+      ]
+    }
+  }
+}

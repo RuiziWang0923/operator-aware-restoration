@@ -1,42 +1,42 @@
 {
   "schema_version": 1,
-  "scope": "SHA-256 integrity manifest for the public evaluation and analysis files. Paths are relative to the repository root. This manifest excludes itself and generated build/evaluation outputs. Checkpoints are supplied as GitHub Release assets and in the local distribution archive.",
+  "scope": "SHA-256 integrity manifest for the public code, evaluation data and checkpoints. Paths are relative to the repository root. This manifest excludes itself and generated evaluation outputs. Checkpoints are supplied as GitHub Release assets and in the local distribution archive.",
   "historical_execution_identities": "data/metadata.json preserves the original 800-image evaluator hash; model/MODEL_MANIFEST.json identifies historical source/verification hashes separately from the included files.",
   "files": [
     {
       "file": ".gitignore",
       "sha256": "113b0cab6146ce84c98a20a46564e1dea4a9a487a47ebb7ae011bb58ab582251",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "CITATION.cff",
-      "sha256": "fea71f30f6a032bc14caf83c5ce2f2e4ae288783d678e3a9c8c82849e666fede",
-      "distribution": "repository"
+      "sha256": "71dc046ef4c9774c4c0b674ddc1659477d27981af43863b3ded64e771fc12fc3",
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "DATA.md",
-      "sha256": "d277ac18cbd15581f3829b19978836f4f69a8b1d8f4f05656efa1dbdfed68c35",
-      "distribution": "repository"
+      "sha256": "fb3fa69c2706d55a70e713cab237de2a0cf0e6321b6cab2c5c90168c4a87380f",
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "LICENSE",
       "sha256": "e66c269d4819aaab34b49ef5220c4ddab6756f21bb5180761a4eb8561f2b7bbd",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "NOTICE",
-      "sha256": "86cdcdc5b626798be029336e073fe3647c70208ec4b714460ce065957ef056cd",
-      "distribution": "repository"
+      "sha256": "9406900dad24790dc0a0f38bc77ff802592133f2616ab0ee190bb8862809c198",
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "README.md",
-      "sha256": "1a0db98a0835f51892b75a5830e56aa163d5d28582c089c1655c773fd33349fa",
-      "distribution": "repository"
+      "sha256": "be60a81608760c6bb0ad595a4fb8cdd5305e1eb4020cd884b3e63ac01fbb8294",
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "checkpoints/README.md",
       "sha256": "bc0f58f1d1ef37bdc6fe08554d35a778dadfd2035a41e6f27aa840388c9c9477",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "checkpoints/arise.pt",
@@ -59,157 +59,112 @@
     {
       "file": "data/capacity_context.csv",
       "sha256": "aae9a80cc94bb8de9248dc2075f12ab6d6079490a0832fd4e665b77c5190f428",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/manifest.csv",
       "sha256": "330c80155ba5eeea4d9ded31ef004fe8dcb70d3eed24baf886551aba01dc8216",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/metadata.json",
       "sha256": "b0b6fcf648dbd4fa38d5ec29c675c8151613505a52b41c166092e69507036ec7",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/per_image.jsonl",
       "sha256": "7e106eaef58d244d86258e338abc5afecba612f1f2ea2d22be561f2fdfd54b6b",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/qualitative_examples.json",
-      "sha256": "75c5095e347ed6839d77f59f1998c168998164fb414c8dd04d0014a520264048",
-      "distribution": "repository"
+      "sha256": "35a66ef2354416aa7120d8fda0120749ced7914903bb8d6ba1e39ec0f14a52aa",
+      "distribution": "repository and local distribution archive"
+    },
+    {
+      "file": "data/reference_tables.json",
+      "sha256": "43e43bc73585931a82357b617e4aa09a315b576b25af04486232767963cfbceb",
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/released_geometry.csv",
       "sha256": "234b8a3bad28f22fd82f810d3af5bdabe0949df08e6c8c59d4a7fe509218acfd",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "data/run_metrics.csv",
       "sha256": "d3b0d2973942fb827fa6df374aabc205b360b81f149888ff49a74f16aadb352f",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/build.sh",
-      "sha256": "5ad084b8bc8befe04eb278835a810679ee0b4f34291fd2cff976236184cb5b6c",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig1.pdf",
-      "sha256": "6950a37936578de5b5027487a7ef7657374015db9c479c79d68e54ce56a99e0b",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig2.pdf",
-      "sha256": "90a51d480f13f33debd0ae40623324b7e99c4f615012ef81718a0832d113a3c4",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig3.pdf",
-      "sha256": "76156b75a1788b6bbaaa9afcc7c0fbbf2dfcbfa9b429f31df0d3a9f64c7903c4",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig4.pdf",
-      "sha256": "c271e2cc032d1270f720a162e6ba1304b74fabd0472461d76133ddc729aff63c",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig5.pdf",
-      "sha256": "4674fd036d11f66e60813e4ee7f0437474ede4747a0d8d3033f7274e388c9226",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/Fig6.pdf",
-      "sha256": "e5be150e9c48a891cd6cd683270b2adbd11cca9c0c9311ee2e5e017d105d68a3",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/figures/README.md",
-      "sha256": "6f7f2280fffb670bfc099af68b9f98866017472f73f2757c41aa354b059ae623",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/manuscript.tex",
-      "sha256": "2f38afb91e92d76c5f4846ea854c42221c8fa8128e7bac6079650e2e933058df",
-      "distribution": "repository"
-    },
-    {
-      "file": "manuscript/references.bib",
-      "sha256": "b6a4528dc204ee435ce8e24419315623c79e6d513d23be8424c0941f54e9d485",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/MODEL_MANIFEST.json",
       "sha256": "b5d402fc4b7d7c8929a61be15a8b08875f42357ca7bf64b973331ea36e0b40ab",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/__init__.py",
       "sha256": "3a819482edcd76849d5afa235344a54a0e5b81ee70d701582134ec57380ac5d5",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/arise.py",
       "sha256": "deaf3febe7df33dfbbb9750d8e7ab5e522d092af0af369cad2982957587fffac",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/jome.py",
       "sha256": "97f8f411f4f755cfe0078caf0132f58076197d820e5dcf9f6015d2f240deba2c",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/past.py",
       "sha256": "364bb0d8a0aa2d9f958979590f9e3d58826196d6415073f5958a6e2b21cccac0",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "model/utils.py",
       "sha256": "bd7db8e84e9aa818c02b4f6efc82caceef2ce5a2fa88f3b9464cad1843ac3327",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "requirements-inference.txt",
       "sha256": "62266b5b5a507e85522d4d54da13b6787ecc9dae2441c6a73645f02f6dc611dc",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "requirements.txt",
       "sha256": "15023b79e401f66ffb55a42f011bffb70f3cdca94701c24f00b8354cbdbb7fc4",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/analyze_operators.py",
       "sha256": "1a5494e66b5fc5c283ebde8d6a70e62ccee4eecc97beab37f17ed54c48639ff4",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/benchmark_metrics.py",
       "sha256": "7f0573b5fdbbf88caf7b2d02497bd22849cc5de68c60e7ab2da5ac282c0380c7",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/download_checkpoints.py",
       "sha256": "a6474ccb84caa84427d1a49e5e62f545a247edf00f03cabdf8308ac13f1944dc",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/evaluate_benchmark.py",
       "sha256": "264a6242cac3dd413d2aa2332349ef5acd84c37457d768832b7d736de04f370b",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/evaluate_operators.py",
       "sha256": "bdc59dec0a212e0f18318f132bec6733d5c3c7c2a09333697095187367b5b1d1",
-      "distribution": "repository"
+      "distribution": "repository and local distribution archive"
     },
     {
       "file": "scripts/reproduce.py",
-      "sha256": "8d7e6fa6bd55be300bcd0d54a8e20b60bb938163b84007beecc49c620e5f56e7",
-      "distribution": "repository"
+      "sha256": "6499f904cc03788b459b3cd7dea26c7418f1adff4704c9c6aef64513501b2a89",
+      "distribution": "repository and local distribution archive"
     }
   ]
 }

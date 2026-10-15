@@ -284,6 +284,7 @@
   ],
   "source_roles": {
     "input_and_target": "External OpenRR-5k image/reference pairs; paths are relative to the dataset root.",
-    "released_kletech": "Released KLETech-CEVI output encoding, identified by system, filename and SHA-256. Figure 4 supplies the corresponding publication artwork."
-  }
+    "released_kletech": "Released KLETech-CEVI output encoding, identified by system, filename and SHA-256. Records describe the examples discussed in Figure 4; source images are obtained separately from the providers."
+  },
+  "scope": "Source identification and scalar evaluation records for illustrative paper examples; no image or artwork files are included."
 }
