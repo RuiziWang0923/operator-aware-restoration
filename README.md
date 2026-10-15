@@ -1,6 +1,6 @@
 # Operator-aware restoration
 
-Scientific companion to *From correction capacity to correction control: operator-aware evaluation of image restoration*, manuscript v4.1.2. The repository provides PAST, JOME, and ARISE model implementations and evaluation weights, native-resolution benchmark inference, the 800-image evidence records and analysis code, and editable manuscript sources with tables and figures.
+Scientific companion to *From correction capacity to correction control: operator-aware evaluation of image restoration*. The repository provides PAST, JOME, and ARISE model implementations and evaluation weights, native-resolution benchmark inference, the 800-image evidence records and analysis code, and editable manuscript sources with tables and figures.
 
 Repository: [operator-aware-restoration](https://github.com/RuiziWang0923/operator-aware-restoration). Code author: Ruizi Wang ([ORCID 0000-0002-6646-9907](https://orcid.org/0000-0002-6646-9907)); contact: [454762251@qq.com](mailto:454762251@qq.com).
 
