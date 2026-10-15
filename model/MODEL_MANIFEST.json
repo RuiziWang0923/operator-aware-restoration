@@ -4,15 +4,12 @@
   "models": [
     {
       "model": "past",
-      "run": "past_rr_full_v2",
       "checkpoint": "checkpoints/base.pt",
-      "source": "openrr_benefit_sirr/runs/past_rr_full_v2/checkpoints/best_val.pt",
       "bytes": 87131081,
       "sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
-      "source_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
       "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
       "epoch": 159,
-      "kind": "PAST-RR evaluated EMA weights",
+      "kind": "PAST EMA backbone weights",
       "identity_sha256": "d2bd04efd846be355fd612f362b806b0f1a3b04f70569c5207dc693720988445",
       "model_select_psnr": 32.46387023393491,
       "config": {
@@ -47,19 +44,18 @@
       "anchor_checkpoint": null,
       "anchor_sha256": null,
       "training_seed": 260812,
-      "historical_precision": "bf16"
+      "historical_precision": "bf16",
+      "release_asset_url": "https://github.com/RuiziWang0923/operator-aware-restoration/releases/download/paper/base.pt",
+      "implementation": "model/past.py"
     },
     {
       "model": "jome",
-      "run": "jome_rr_full_v5",
       "checkpoint": "checkpoints/jome.pt",
-      "source": "openrr_benefit_sirr/runs/jome_rr_full_v5/checkpoints/best_val.pt",
       "bytes": 12261307,
       "sha256": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c",
-      "source_sha256": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c",
       "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
       "epoch": 80,
-      "kind": "JOME-RR evaluated EMA add-on weights",
+      "kind": "JOME EMA add-on weights",
       "identity_sha256": "71238d49b2cf4426257253418b96b84ee0d189f1c1705f1c3f88317cbc8f2477",
       "model_select_psnr": 32.677645472856796,
       "config": {
@@ -96,19 +92,18 @@
       "anchor_checkpoint": "checkpoints/base.pt",
       "anchor_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
       "training_seed": 260816,
-      "historical_precision": "bf16"
+      "historical_precision": "bf16",
+      "release_asset_url": "https://github.com/RuiziWang0923/operator-aware-restoration/releases/download/paper/jome.pt",
+      "implementation": "model/jome.py"
     },
     {
       "model": "arise",
-      "run": "arise_rr_full_v4",
       "checkpoint": "checkpoints/arise.pt",
-      "source": "openrr_benefit_sirr/runs/arise_rr_full_v4/checkpoints/best_val.pt",
       "bytes": 12385433,
       "sha256": "53a2e93f2d012b1146c8737acfe2e84bd42214654eadd02282c52dd7ddf5851a",
-      "source_sha256": "53a2e93f2d012b1146c8737acfe2e84bd42214654eadd02282c52dd7ddf5851a",
       "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
       "epoch": 80,
-      "kind": "ARISE-RR evaluated EMA add-on weights",
+      "kind": "ARISE EMA add-on weights",
       "identity_sha256": "3c523ac45884edfd08351278ee9f43a5be68b228d53919f82448e1549acd5eb7",
       "model_select_psnr": 32.49640554199288,
       "config": {
@@ -145,20 +140,21 @@
       "anchor_checkpoint": "checkpoints/base.pt",
       "anchor_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
       "training_seed": 260816,
-      "historical_precision": "bf16"
+      "historical_precision": "bf16",
+      "release_asset_url": "https://github.com/RuiziWang0923/operator-aware-restoration/releases/download/paper/arise.pt",
+      "implementation": "model/arise.py"
     }
   ],
-  "scope": "PAST backbone and JOME/ARISE add-ons for direct evaluation; historical ablation and SCTR comparisons are provided as recorded statistical evidence.",
-  "license": "undecided",
+  "scope": "Direct evaluation of the PAST backbone and JOME/ARISE add-ons, plus statistical replay of recorded results. Training code and training reproducibility are outside this release.",
   "external_models": "External-system comparisons use published summaries and released-output measurements, with provider attribution in data/capacity_context.csv and data/released_geometry.csv.",
   "protocols": {
     "historical": "CUDA BF16 forward; FP32 parameters and PSNR reduction; channels-last; TF32 allowed; four-pixel RGB crop; native dimensions. JPEG100: round(clamp(Y,0,1)*255), Pillow quality=100,subsampling=0. Local SSIM uses FP32 11x11 sigma1.5 valid Gaussian window after crop.",
-    "controlled": "CUDA BF16 forward; FP32 parameters; contiguous; matmul TF32 disabled; float64 MSE reductions. Frozen scripts/evaluate_priority.py defines matched operators and retains original execution semantics."
+    "controlled": "CUDA BF16 forward; FP32 parameters; contiguous layout; device-side uint8-to-float32 normalization; matmul TF32 disabled; float64 MSE reductions. scripts/evaluate_operators.py reconstructs matched operators, Gram matrices and correction geometry using this protocol."
   },
   "metric_limitations": [
     "The released-output audit found a maximum absolute difference of 0.000228 between measured team-mean SSIM and published challenge values; exact published-score parity is not established.",
-    "LPIPS,DISTS,NIQE and historical full-pipeline latency are retained evidence, not recomputed by the minimal evaluator.",
-    "Device,PyTorch,CUDA,Pillow and precision differences can alter scores. Current controlled raw scores differ slightly from historical scores."
+    "LPIPS,DISTS,NIQE and historical full-pipeline latency are retained evidence, not recomputed by the direct evaluator.",
+    "Device,PyTorch,CUDA,Pillow and precision differences can alter scores. Controlled raw scores differ slightly from historical scores."
   ],
   "verification": {
     "weights_only_load": true,
@@ -175,8 +171,8 @@
       "jome": 24763109,
       "arise": 24800620
     },
-    "historical_ssim_extraction": "Verbatim selected functions matched original source exactly on a synthetic RGB pair",
-    "cli_smoke": "All three historical-protocol models scored one synthetic pair and wrote native NPY/PNG/JPEG outputs on CPU; this verifies operation, not GPU score parity.",
+    "historical_ssim_extraction": "The retained SSIM functions matched the original metric implementation exactly on a synthetic RGB pair.",
+    "cli_smoke": "All three historical-protocol models scored one synthetic external image/reference pair on CPU and wrote native NPY/PNG/JPEG outputs; this verifies operation, not GPU score parity.",
     "cuda_bf16_native_image_smoke": {
       "hardware": "NVIDIA A100-SXM4-40GB",
       "torch_version": "2.11.0+cu130",
@@ -210,12 +206,6 @@
       },
       "full_benchmark_repeated": false
     },
-    "controlled_loader_final_patch": {
-      "status": "not_executed",
-      "reason": "Colab websocket connection loss prevented execution of the final controlled-loader GPU recheck.",
-      "patched_evaluator_sha256": "d55c698558f32c3ac77be9b73eed74b8dd1dc5292801433bc253954e1fef467a",
-      "change": "Controlled load_rgb follows the frozen evaluator: transfer the uint8 tensor to the device, cast to float32, then divide by 255. Historical loading is unchanged."
-    },
     "frozen_qualitative_export": {
       "images": [
         "val_0001",
@@ -226,17 +216,67 @@
       ],
       "max_absolute_mse_difference_from_archived_records": 3.198396408832238e-17,
       "max_absolute_psnr_difference_db": 2.1316282072803006e-13,
-      "interpretation": "Native output exporter uses frozen evaluate_priority.py; distinct from the minimal direct CLI smoke test."
+      "interpretation": "Five-image PAST/JOME export with the original operator evaluator; validates those exported raw scores only and is separate from direct-evaluator verification."
+    },
+    "controlled_gpu_validation": {
+      "status": "not_performed_for_current_normalization_protocol",
+      "protocol": "Transfer the uint8 RGB tensor to the device, cast to float32, then divide by 255.",
+      "scope": "The one-image CUDA checks above precede this normalization refinement; full-benchmark parity remains unverified."
+    },
+    "implementation_equivalence": {
+      "device": "cpu",
+      "precision": "FP32",
+      "input_shape": [
+        1,
+        3,
+        33,
+        41
+      ],
+      "models": [
+        "past",
+        "jome",
+        "arise"
+      ],
+      "state_dict_keys_and_tensors_identical_to_original_implementations": true,
+      "forward_outputs_bitwise_equal_to_original_implementations": true,
+      "scope": "Synthetic-input implementation equivalence; not GPU benchmark score parity."
+    },
+    "operator_cli_smoke": {
+      "device": "cpu",
+      "input": "one synthetic external image/reference pair",
+      "completed": true,
+      "gram_replay_and_clipping_reachability_audits_passed": true,
+      "resume_duplicate_records": 0,
+      "scope": "CLI and record-integrity operation; not the 800-image GPU protocol revalidation."
     }
   },
-  "model_source_sha256": {
-    "model/project/src/benefitsirr/utils.py": "8a8ce31217dc11885e941dbfc42457dea058eff524fe36fdaa75146491fae932",
-    "model/project/revision_v5/joint_output_moe/model.py": "361c7239c5ca1ba5957472f98830fae022ef3bda10dec2f90640b7c369c7e6c6",
-    "model/project/revision_v2/past_rr/model.py": "364bb0d8a0aa2d9f958979590f9e3d58826196d6415073f5958a6e2b21cccac0",
-    "model/project/revision_v4/arise_rr/model.py": "262685effc879af62f3de69d9d8cfe07b4d9c123f94ddcddec74ef68d5f47b4f"
-  },
-  "evaluation_script_sha256": "d55c698558f32c3ac77be9b73eed74b8dd1dc5292801433bc253954e1fef467a",
   "code_author_orcid": "0000-0002-6646-9907",
   "code_author_email": "454762251@qq.com",
-  "repository": "https://github.com/RuiziWang0923/operator-aware-restoration"
+  "repository": "https://github.com/RuiziWang0923/operator-aware-restoration",
+  "checkpoint_payload_metadata": "Checkpoint files are byte-identical evaluation artifacts. Their embedded metadata may retain original training labels and source paths; the model names, included checkpoint paths, configurations, epochs, seeds and hashes in this manifest define the public evaluation interface.",
+  "historical_model_source_identities": [
+    {
+      "component": "shared utilities",
+      "sha256": "8a8ce31217dc11885e941dbfc42457dea058eff524fe36fdaa75146491fae932",
+      "scope": "Original implementation used before publication source reorganization; not a hash of the current included source."
+    },
+    {
+      "component": "JOME",
+      "sha256": "361c7239c5ca1ba5957472f98830fae022ef3bda10dec2f90640b7c369c7e6c6",
+      "scope": "Original implementation used before publication source reorganization; not a hash of the current included source."
+    },
+    {
+      "component": "PAST",
+      "sha256": "364bb0d8a0aa2d9f958979590f9e3d58826196d6415073f5958a6e2b21cccac0",
+      "scope": "Original implementation used before publication source reorganization; not a hash of the current included source."
+    },
+    {
+      "component": "ARISE",
+      "sha256": "262685effc879af62f3de69d9d8cfe07b4d9c123f94ddcddec74ef68d5f47b4f",
+      "scope": "Original implementation used before publication source reorganization; not a hash of the current included source."
+    }
+  ],
+  "historical_direct_evaluator_sha256": "d55c698558f32c3ac77be9b73eed74b8dd1dc5292801433bc253954e1fef467a",
+  "historical_direct_evaluator_identity_scope": "Identity of the earlier direct evaluator with device-side controlled normalization; its final controlled GPU validation was not executed. Current included source hashes are listed in data/provenance.json.",
+  "license": "CC-BY-NC-SA-4.0 for original authored code, weights, documentation and results; third-party material retains its own terms. See LICENSE and NOTICE."
 }
