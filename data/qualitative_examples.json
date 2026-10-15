@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "manuscript_version": "v4.1.1",
+  "figure": 4,
+  "selection": "Purposeful illustrative selection; not a representative sample or an estimate of prevalence. Selected after visual review of five exported candidates, including val_0244 which was not used. val_0004 from the preceding figure was replaced by val_0248.",
+  "checkpoint_sha256": {
+    "base": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+    "jome": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c"
+  },
+  "device": "NVIDIA A100-SXM4-40GB",
+  "torch_version": "2.11.0+cu130",
+  "precision": "CUDA BF16 autocast; model parameters FP32; exported native values cast losslessly to float32",
+  "protocol": {
+    "native_resolution": true,
+    "batch_size": 1,
+    "border_crop_for_metrics": 4,
+    "psnr": "raw RGB, float64 MSE reduction, max_val=1",
+    "ssim": "raw RGB FP32 Gaussian 11x11 sigma1.5 valid convolution, border4; copied from project epoch evaluator",
+    "routing_epoch": 80,
+    "phase": "evaluation",
+    "training": false,
+    "torch_compile": false,
+    "matmul_allow_tf32": false
+  },
+  "display_conversion": "All inputs/targets/outputs: round-to-nearest-even(255*clip(native_RGB,0,1)), uint8 lossless PNG, no additional transformation; display metrics not used",
+  "score_representations": {
+    "input": "original decoded input",
+    "base": "native floating-point prediction before 8-bit display conversion",
+    "jome": "native floating-point prediction before 8-bit display conversion",
+    "released_kletech": "decoded original released encoding"
+  },
+  "rows": [
+    {
+      "id": "val_0001",
+      "split_role": "official",
+      "height": 1024,
+      "width": 1024,
+      "selection_reason": "Localized sky reflection is visibly reduced even though input reference PSNR is higher; image-level near-identity does not establish perceptual preference.",
+      "display": "full native frame; no crop, enhancement, or contrast adjustment",
+      "input_path": "data/val/input/val_0001.jpg",
+      "target_path": "data/val/target/val_0001.jpg",
+      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0001.jpg",
+      "source_sha256": {
+        "input": "5baa9533ce61f432d69deedcd6f7d3aa5f012d51b3b8611d091bc58b39cb1fe1",
+        "target": "3963cf27dec4231ebb052856c0afa570c2c0367d69b9cb8c01f7e3d1dcc39f58",
+        "released_kletech": "b94468014b484b8017ed58b4c0a26c2b63d2747b2bfc2acd63ae0a3143c6a5a8"
+      },
+      "metrics": {
+        "input": {
+          "mse": 4.922282312471497e-05,
+          "psnr": 43.07833481402724,
+          "ssim": 0.9926735758781433
+        },
+        "base": {
+          "mse": 0.00011607923281284845,
+          "psnr": 39.3524547088603,
+          "ssim": 0.9939135909080505
+        },
+        "jome": {
+          "mse": 0.00011979763105636085,
+          "psnr": 39.21551769837547,
+          "ssim": 0.9939831495285034
+        },
+        "released_kletech": {
+          "mse": 0.00012176226874115703,
+          "psnr": 39.14487268485904,
+          "ssim": 0.9928302764892578
+        }
+      },
+      "archive_comparison": {
+        "input": {
+          "prior_mse": 4.922282312471499e-05,
+          "prior_psnr": 43.07833481402724,
+          "mse_absolute_difference": 2.0328790734103208e-20,
+          "psnr_difference_db": 0.0
+        },
+        "base": {
+          "prior_mse": 0.00011607923281284697,
+          "prior_psnr": 39.35245470886036,
+          "mse_absolute_difference": 1.4772254600114998e-18,
+          "psnr_difference_db": -5.684341886080802e-14
+        },
+        "jome": {
+          "prior_mse": 0.00011979763105636085,
+          "prior_psnr": 39.21551769837547,
+          "mse_absolute_difference": 0.0,
+          "psnr_difference_db": 0.0
+        }
+      }
+    },
+    {
+      "id": "val_0002",
+      "split_role": "official",
+      "height": 1024,
+      "width": 1024,
+      "selection_reason": "Visible reflection suppression with improved reference PSNR; the additional base-to-JOME change is subtle.",
+      "display": "full native frame; no crop, enhancement, or contrast adjustment",
+      "input_path": "data/val/input/val_0002.jpg",
+      "target_path": "data/val/target/val_0002.jpg",
+      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0002.jpg",
+      "source_sha256": {
+        "input": "0d9b6fb515c927e7a2b8309e3fd4bcfbc4a53b3115bdca3c6dee6db01846165d",
+        "target": "13acd6d641905441e34409a73ce13e0f47bbcb39426c71db4715561bbccdcc80",
+        "released_kletech": "82b26265dd7672a374d30784c92463d440325ea767949918ea9b90512fac3337"
+      },
+      "metrics": {
+        "input": {
+          "mse": 0.00027802154967068374,
+          "psnr": 35.559215402677246,
+          "ssim": 0.9846323132514954
+        },
+        "base": {
+          "mse": 0.00010643521713804688,
+          "psnr": 39.729146495023095,
+          "ssim": 0.9903460144996643
+        },
+        "jome": {
+          "mse": 0.00010000284563568944,
+          "psnr": 39.9998764173706,
+          "ssim": 0.9904612302780151
+        },
+        "released_kletech": {
+          "mse": 9.727652393920132e-05,
+          "psnr": 40.11991956790459,
+          "ssim": 0.9887896776199341
+        }
+      },
+      "archive_comparison": {
+        "input": {
+          "prior_mse": 0.00027802154967067984,
+          "prior_psnr": 35.55921540267731,
+          "mse_absolute_difference": 3.903127820947816e-18,
+          "psnr_difference_db": -6.394884621840902e-14
+        },
+        "base": {
+          "prior_mse": 0.00010643521713804224,
+          "prior_psnr": 39.729146495023286,
+          "mse_absolute_difference": 4.6349642873755315e-18,
+          "psnr_difference_db": -1.9184653865522705e-13
+        },
+        "jome": {
+          "prior_mse": 0.00010000284563568944,
+          "prior_psnr": 39.9998764173706,
+          "mse_absolute_difference": 0.0,
+          "psnr_difference_db": 0.0
+        }
+      }
+    },
+    {
+      "id": "val_0003",
+      "split_role": "official",
+      "height": 1024,
+      "width": 1024,
+      "selection_reason": "A second ordinary restoration example with improved reference PSNR; preserves balance against the near-identity examples.",
+      "display": "full native frame; no crop, enhancement, or contrast adjustment",
+      "input_path": "data/val/input/val_0003.jpg",
+      "target_path": "data/val/target/val_0003.jpg",
+      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0003.jpg",
+      "source_sha256": {
+        "input": "c6ff77c45f279b272f84007ee568438b38b33ea57a12c8a48ee7e18b49bd3900",
+        "target": "979b5819e5db9d9d9f673b51d34fa1095133827cdc5c5173ed451a07148d252c",
+        "released_kletech": "6a7552f33da1ee8898c863f6e229958b0280a66de5cd59eacadf3b9392ae8996"
+      },
+      "metrics": {
+        "input": {
+          "mse": 0.000945097026545815,
+          "psnr": 30.245236032046428,
+          "ssim": 0.9682639837265015
+        },
+        "base": {
+          "mse": 0.00034450862709088425,
+          "psnr": 34.62799898136461,
+          "ssim": 0.9800835251808167
+        },
+        "jome": {
+          "mse": 0.0003158644038253753,
+          "psnr": 35.00499313927926,
+          "ssim": 0.9806386828422546
+        },
+        "released_kletech": {
+          "mse": 0.00032700544003284773,
+          "psnr": 34.85445022395998,
+          "ssim": 0.9838319420814514
+        }
+      },
+      "archive_comparison": {
+        "input": {
+          "prior_mse": 0.000945097026545783,
+          "prior_psnr": 30.245236032046577,
+          "mse_absolute_difference": 3.198396408832238e-17,
+          "psnr_difference_db": -1.4921397450962104e-13
+        },
+        "base": {
+          "prior_mse": 0.0003445086270908736,
+          "prior_psnr": 34.62799898136475,
+          "mse_absolute_difference": 1.0679391398982219e-17,
+          "psnr_difference_db": -1.3500311979441904e-13
+        },
+        "jome": {
+          "prior_mse": 0.0003158644038253753,
+          "prior_psnr": 35.00499313927926,
+          "mse_absolute_difference": 0.0,
+          "psnr_difference_db": 0.0
+        }
+      }
+    },
+    {
+      "id": "val_0248",
+      "split_role": "official",
+      "height": 1024,
+      "width": 1024,
+      "selection_reason": "Connects the previously reported positive gain over PAST and negative gain over input to a near-identity image with visually subtle edits.",
+      "display": "full native frame; no crop, enhancement, or contrast adjustment",
+      "input_path": "data/val/input/val_0248.jpg",
+      "target_path": "data/val/target/val_0248.jpg",
+      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0248.jpg",
+      "source_sha256": {
+        "input": "a9dad068f34743c00ae897a182e88c7986395b08eb1f79f66a98e86bee1d18ef",
+        "target": "bd976fc60b62296d4175e00fecc791a9d37ff770a2ff875f676ba1ec776902d5",
+        "released_kletech": "d5f946c22ace93b45836bedeea94e83eb66ef976d540372dab018d78d2c38b3b"
+      },
+      "metrics": {
+        "input": {
+          "mse": 4.113090598144476e-06,
+          "psnr": 53.85831724276169,
+          "ssim": 0.998719334602356
+        },
+        "base": {
+          "mse": 1.5898434551332376e-05,
+          "psnr": 47.986456366348094,
+          "ssim": 0.9981478452682495
+        },
+        "jome": {
+          "mse": 1.1987697534132231e-05,
+          "psnr": 49.212642234269694,
+          "ssim": 0.9981771111488342
+        },
+        "released_kletech": {
+          "mse": 6.255522954606669e-06,
+          "psnr": 52.03736377927977,
+          "ssim": 0.9978865385055542
+        }
+      },
+      "archive_comparison": {
+        "input": {
+          "prior_mse": 4.113090598144474e-06,
+          "prior_psnr": 53.85831724276169,
+          "mse_absolute_difference": 2.541098841762901e-21,
+          "psnr_difference_db": 0.0
+        },
+        "base": {
+          "prior_mse": 1.5898434551332207e-05,
+          "prior_psnr": 47.986456366348136,
+          "mse_absolute_difference": 1.6940658945086007e-19,
+          "psnr_difference_db": -4.263256414560601e-14
+        },
+        "jome": {
+          "prior_mse": 1.1987697534132231e-05,
+          "prior_psnr": 49.212642234269694,
+          "mse_absolute_difference": 0.0,
+          "psnr_difference_db": 0.0
+        }
+      }
+    }
+  ]
+}

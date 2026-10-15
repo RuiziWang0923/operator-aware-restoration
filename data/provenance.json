@@ -1,0 +1,251 @@
+{
+  "manuscript_version": "v4.1.2 author information and wording edition; arguments, mathematics, numerical results, figures and bibliography preserved",
+  "files": [
+    {
+      "file": "manuscript/figures/Fig1.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig1.pdf",
+      "source_sha256": "6950a37936578de5b5027487a7ef7657374015db9c479c79d68e54ce56a99e0b",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/figures/Fig2.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig2.pdf",
+      "source_sha256": "90a51d480f13f33debd0ae40623324b7e99c4f615012ef81718a0832d113a3c4",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/figures/Fig3.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig3.pdf",
+      "source_sha256": "76156b75a1788b6bbaaa9afcc7c0fbbf2dfcbfa9b429f31df0d3a9f64c7903c4",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/figures/Fig4.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig4.pdf",
+      "source_sha256": "c271e2cc032d1270f720a162e6ba1304b74fabd0472461d76133ddc729aff63c",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/figures/Fig5.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig5.pdf",
+      "source_sha256": "4674fd036d11f66e60813e4ee7f0437474ede4747a0d8d3033f7274e388c9226",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/figures/Fig6.pdf",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/figures/Fig6.pdf",
+      "source_sha256": "e5be150e9c48a891cd6cd683270b2adbd11cca9c0c9311ee2e5e017d105d68a3",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/main.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/main.tex",
+      "source_sha256": "e1734b41452037e12ecaa2aa6e89b9fc076ce10f342fb3e51dbef55d9c503df2",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/preamble.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/preamble.tex",
+      "source_sha256": "ddd1ef3014e7ed11f6b1d3bd40924dab47c43bbe1c393da810ee79de3188cc67",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/references.bib",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/references.bib",
+      "source_sha256": "0465dd6c03b02f33ca09f4041e2b45d41d403847d0faefc08acf3722811afc75",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/01_introduction.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/01_introduction.tex",
+      "source_sha256": "69e3429de46fe75c58ddbabbd010dc8dc12173ace0e23eb02431e1bd75acf162",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/02_related_work.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/02_related_work.tex",
+      "source_sha256": "7ad9f10a36eb464635586c433a032f6d4eec9bd0b05e490edca22b50be499872",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/03_framework.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/03_framework.tex",
+      "source_sha256": "e3d514ea6fc0a155feebc7c313bcb6b845216f0e568f468aafbac54895cde99c",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/04_method.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/04_method.tex",
+      "source_sha256": "bcf8ac9f7d54018b0e574003f21d25ba2b8e707c62c4290f1bba7ae7c274b34a",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/05_protocol.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/05_protocol.tex",
+      "source_sha256": "77eeec13871490e146ef73f739ab819eb511e6d2625d68d834b88efb6fde9ea5",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/06_capacity_results.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/06_capacity_results.tex",
+      "source_sha256": "69255b5a1f1641cb1aecd5722d57a8024bd03f2eb64f07f97845c1e85c2e9c52",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/07_control_results.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/07_control_results.tex",
+      "source_sha256": "dee852c222652c2e42380877d7e9c13a2573a84d30b6f2ca715a05900a621b99",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/08_discussion.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/08_discussion.tex",
+      "source_sha256": "bec45225d20ee37e4f9f747373eb81b35a717413d5bec69ad023db7547fbbfd4",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/sections/09_declarations.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/sections/09_declarations.tex",
+      "source_sha256": "8f2dc8631a5eeb036c2e0a0e2c41356e9d641bca13f0d51fed0aa8cede26e486",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/calibrated_scores.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/calibrated_scores.tex",
+      "source_sha256": "ada4b20cc3c877555fe85de53734af0504b86d28b2859e95b2aa340e7654687a",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/capacity.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/capacity.tex",
+      "source_sha256": "f02d037f38b062f57eb4192c47f867503eed76fb04ef02f0cfa192f9195386a9",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/fixed_backbone.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/fixed_backbone.tex",
+      "source_sha256": "e497fc77416b52c23fc1e62cc3490c1619bef746c6b72eb140dfdaf64bd80f70",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/geometry.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/geometry.tex",
+      "source_sha256": "80c912c57aaba7db92771e9037307cd9a2982c288751c3f4c2ec7830b975fb85",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/operators.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/operators.tex",
+      "source_sha256": "e519c9dab4c6444936e07002645f98e4c136f613e85f32c9b78723ecb1f359ba",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/quadrants.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/quadrants.tex",
+      "source_sha256": "16da6c1fd53e2905031d6126cba37fb6d04c99ad73dc001cbb602dfd27afa850",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/reachability.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/reachability.tex",
+      "source_sha256": "15e843f5b0a667d1282cb5cd77b2d86a274e99ad0a48891f907ca777fdbd7999",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "manuscript/tables/weights.tex",
+      "source": "openrr_benefit_sirr/manuscript/discover_computing_v4_1_2_2026-10-15/source/tables/weights.tex",
+      "source_sha256": "9afa9dc58dc9ba7b43337f8001ff07e7aec9a290f91394d82e7d6ba71f66b5f9",
+      "transformation": "unchanged copy of v4.1.2 manuscript source"
+    },
+    {
+      "file": "data/per_image.jsonl",
+      "source": "openrr_benefit_sirr/reports/priority_addons_2026-10-13/output/per_image.jsonl",
+      "source_sha256": "7e106eaef58d244d86258e338abc5afecba612f1f2ea2d22be561f2fdfd54b6b",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "data/metadata.json",
+      "source": "openrr_benefit_sirr/reports/priority_addons_2026-10-13/output/metadata.json",
+      "source_sha256": "f7923398c41c05cbd98ff6a5b6116dcf0625294bb08fe6f05bb23d634139a39f",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "data/manifest.csv",
+      "source": "openrr_benefit_sirr/reports/priority_addons_2026-10-13/manifest.csv",
+      "source_sha256": "330c80155ba5eeea4d9ded31ef004fe8dcb70d3eed24baf886551aba01dc8216",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "scripts/analyze_priority.py",
+      "source": "openrr_benefit_sirr/reports/priority_addons_2026-10-13/analyze_priority.py",
+      "source_sha256": "faaa679322eb9f47ff55927f043a8d03ed330cef614477b5a4a2f0dd0d404052",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "scripts/evaluate_priority.py",
+      "source": "openrr_benefit_sirr/reports/priority_addons_2026-10-13/evaluate_priority.py",
+      "source_sha256": "c9a12d6439860e8f51c24ab89232a1f907f381c60554184dd4ccbb9558517852",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "data/released_geometry.csv",
+      "source": "openrr_benefit_sirr/reports/manuscript_investigation_2026-09-19/data/released_correction_geometry.csv",
+      "source_sha256": "234b8a3bad28f22fd82f810d3af5bdabe0949df08e6c8c59d4a7fe509218acfd",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "data/run_metrics.csv",
+      "source": "openrr_benefit_sirr/reports/manuscript_investigation_2026-09-19/data/run_metrics.csv",
+      "source_sha256": "5b247e3390e0b247cc8e3b0d18854b7e590caa69ba7ce3588c1870098c8d5d75",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "model/project/revision_v2/past_rr/model.py",
+      "source": "openrr_benefit_sirr/revision_v2/past_rr/model.py",
+      "source_sha256": "364bb0d8a0aa2d9f958979590f9e3d58826196d6415073f5958a6e2b21cccac0",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "model/project/revision_v5/joint_output_moe/model.py",
+      "source": "openrr_benefit_sirr/revision_v5/joint_output_moe/model.py",
+      "source_sha256": "361c7239c5ca1ba5957472f98830fae022ef3bda10dec2f90640b7c369c7e6c6",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "model/project/src/benefitsirr/utils.py",
+      "source": "openrr_benefit_sirr/src/benefitsirr/utils.py",
+      "source_sha256": "8a8ce31217dc11885e941dbfc42457dea058eff524fe36fdaa75146491fae932",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "data/capacity_context.csv",
+      "source": "openrr_benefit_sirr/manuscript/journal_revision_v2_2026-09-22/source_data/v2_capacity_context.csv",
+      "source_sha256": "fb03bbe6c3f22b31ad9f55ad6ab06dda033b6fbbe646c7129f8d72aef7237cf3",
+      "transformation": "unchanged copy"
+    },
+    {
+      "file": "checkpoints/base.pt",
+      "source": "openrr_benefit_sirr/runs/past_rr_full_v2/checkpoints/best_val.pt",
+      "source_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+      "transformation": "byte-identical EMA weights used for the recorded model evaluation"
+    },
+    {
+      "file": "checkpoints/jome.pt",
+      "source": "openrr_benefit_sirr/runs/jome_rr_full_v5/checkpoints/best_val.pt",
+      "source_sha256": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c",
+      "transformation": "byte-identical EMA weights used for the recorded model evaluation"
+    },
+    {
+      "file": "checkpoints/arise.pt",
+      "source": "openrr_benefit_sirr/runs/arise_rr_full_v4/checkpoints/best_val.pt",
+      "source_sha256": "53a2e93f2d012b1146c8737acfe2e84bd42214654eadd02282c52dd7ddf5851a",
+      "transformation": "byte-identical EMA weights used for the recorded model evaluation"
+    },
+    {
+      "file": "model/project/revision_v4/arise_rr/model.py",
+      "source": "openrr_benefit_sirr/revision_v4/arise_rr/model.py",
+      "source_sha256": "262685effc879af62f3de69d9d8cfe07b4d9c123f94ddcddec74ef68d5f47b4f",
+      "transformation": "unchanged copy"
+    }
+  ]
+}

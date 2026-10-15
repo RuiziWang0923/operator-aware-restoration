@@ -1,0 +1,15 @@
+model,label,parameters_m,data_scope,psnr,ssim,published_psnr,published_ssim,score_source,parameter_source,source_url
+refineX,refineX,8.2,OpenRR only,30.5993,0.9715,30.5993,0.9715,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+PAST,PAST,21.737337,OpenRR only,34.190890171890075,0.9722188121080398,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
+JOME,JOME,24.763109,OpenRR only,34.34745288817054,0.9725808314482371,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
+ARISE,ARISE,24.80062,OpenRR only,34.22573810921136,0.9726197409629822,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
+SiGMoid,SiGMoid,26.13,OpenRR only,34.2792,0.9749,34.2792,0.9749,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+6_KLETech-CEVI,KLETech-CEVI,27.4,OpenRR only,34.537693726479894,0.9746527274449668,34.5375,0.9748,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+PSU,PSU,45.599,OpenRR only,34.5148,0.9746,34.5148,0.9746,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+NTR,NTR,142.5,OpenRR only,33.9679,0.9729,33.9679,0.9729,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+ACVLAB,ACVLAB,267.166,OpenRR only,31.6886,0.9241,31.6886,0.9241,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+3_AIIALab,AIIALab,314.0,OpenRR + external,35.380107270479954,0.974795102675756,35.3799,0.975,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+1_RRay,RRay,322.82,OpenRR + external,36.169100626808714,0.9756470702091852,36.1688,0.9758,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+4_VIP Lab,VIP Lab,404.0,OpenRR + external,34.68734996408753,0.9764603585004806,34.6872,0.9766,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+5_YuFans,YuFans,522.34,OpenRR only,34.906390425110764,0.973571966290474,34.9062,0.9738,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
+2_Xreflect_Master,Xreflect Master,545.52,OpenRR + external,36.04987690015734,0.9773863516251248,36.0496,0.9776,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3

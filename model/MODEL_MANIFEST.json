@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "code_author": "Ruizi Wang",
+  "models": [
+    {
+      "model": "past",
+      "run": "past_rr_full_v2",
+      "checkpoint": "checkpoints/base.pt",
+      "source": "openrr_benefit_sirr/runs/past_rr_full_v2/checkpoints/best_val.pt",
+      "bytes": 87131081,
+      "sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+      "source_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+      "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
+      "epoch": 159,
+      "kind": "PAST-RR evaluated EMA weights",
+      "identity_sha256": "d2bd04efd846be355fd612f362b806b0f1a3b04f70569c5207dc693720988445",
+      "model_select_psnr": 32.46387023393491,
+      "config": {
+        "width": 48,
+        "encoder_blocks": [
+          1,
+          1,
+          4
+        ],
+        "bottleneck_naf_blocks": 2,
+        "transformer_blocks": 10,
+        "decoder_blocks": [
+          4,
+          1,
+          1
+        ],
+        "allocator_groups": 8,
+        "allocator_window": 16,
+        "allocator_stride": 8,
+        "transformer_heads": 8,
+        "output_residual_scale": 0.1
+      },
+      "parameters": {
+        "B_spatial": 5153088,
+        "M_complex_allocation": 1319472,
+        "N_phase_transformer": 15262176,
+        "output_heads": 2598,
+        "output_scales": 3,
+        "total": 21737337,
+        "trainable": 21737337
+      },
+      "anchor_checkpoint": null,
+      "anchor_sha256": null,
+      "training_seed": 260812,
+      "historical_precision": "bf16"
+    },
+    {
+      "model": "jome",
+      "run": "jome_rr_full_v5",
+      "checkpoint": "checkpoints/jome.pt",
+      "source": "openrr_benefit_sirr/runs/jome_rr_full_v5/checkpoints/best_val.pt",
+      "bytes": 12261307,
+      "sha256": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c",
+      "source_sha256": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c",
+      "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
+      "epoch": 80,
+      "kind": "JOME-RR evaluated EMA add-on weights",
+      "identity_sha256": "71238d49b2cf4426257253418b96b84ee0d189f1c1705f1c3f88317cbc8f2477",
+      "model_select_psnr": 32.677645472856796,
+      "config": {
+        "evidence_channels": 18,
+        "experts": 4,
+        "shared_width": 64,
+        "shared_half_width": 128,
+        "shared_quarter_width": 192,
+        "shared_full_blocks": 2,
+        "shared_half_blocks": 2,
+        "shared_quarter_blocks": 3,
+        "shared_attention_blocks": 2,
+        "shared_attention_heads": 4,
+        "expert_blocks": 2,
+        "residual_cap": 0.1,
+        "router_width": 40,
+        "router_blocks": 2,
+        "router_attention_blocks": 1,
+        "router_attention_heads": 4,
+        "dense_through_epoch": 8,
+        "initial_temperature": 1.0,
+        "final_temperature": 0.5,
+        "target_epoch": 80
+      },
+      "parameters": {
+        "frozen_anchor": 21737337,
+        "shared_encoder_decoder_and_homogeneous_experts": 2688724,
+        "spatial_outcome_router": 337048,
+        "addon": 3025772,
+        "total": 24763109,
+        "trainable": 3025772,
+        "active_trainable_in_current_phase": 0
+      },
+      "anchor_checkpoint": "checkpoints/base.pt",
+      "anchor_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+      "training_seed": 260816,
+      "historical_precision": "bf16"
+    },
+    {
+      "model": "arise",
+      "run": "arise_rr_full_v4",
+      "checkpoint": "checkpoints/arise.pt",
+      "source": "openrr_benefit_sirr/runs/arise_rr_full_v4/checkpoints/best_val.pt",
+      "bytes": 12385433,
+      "sha256": "53a2e93f2d012b1146c8737acfe2e84bd42214654eadd02282c52dd7ddf5851a",
+      "source_sha256": "53a2e93f2d012b1146c8737acfe2e84bd42214654eadd02282c52dd7ddf5851a",
+      "packaging": "Byte-identical EMA weights used for the recorded model evaluation",
+      "epoch": 80,
+      "kind": "ARISE-RR evaluated EMA add-on weights",
+      "identity_sha256": "3c523ac45884edfd08351278ee9f43a5be68b228d53919f82448e1549acd5eb7",
+      "model_select_psnr": 32.49640554199288,
+      "config": {
+        "evidence_channels": 18,
+        "refiner_width": 64,
+        "refiner_half_width": 128,
+        "refiner_quarter_width": 192,
+        "refiner_full_blocks": 2,
+        "refiner_half_blocks": 2,
+        "refiner_quarter_blocks": 3,
+        "refiner_attention_blocks": 2,
+        "refiner_attention_heads": 4,
+        "removal_residual_cap": 0.12,
+        "detail_residual_cap": 0.08,
+        "photometric_residual_cap": 0.06,
+        "assessor_width": 48,
+        "assessor_blocks": 2,
+        "assessor_attention_blocks": 2,
+        "assessor_attention_heads": 4,
+        "conservative_kappa": 0.5,
+        "initial_temperature": 0.75,
+        "minimum_temperature": 0.25,
+        "maximum_temperature": 2.0
+      },
+      "parameters": {
+        "frozen_anchor": 21737337,
+        "residual_experts_shared_refiner": 2507473,
+        "counterfactual_risk_assessor": 555810,
+        "addon": 3063283,
+        "total": 24800620,
+        "trainable": 3063283,
+        "active_trainable_in_current_phase": 0
+      },
+      "anchor_checkpoint": "checkpoints/base.pt",
+      "anchor_sha256": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+      "training_seed": 260816,
+      "historical_precision": "bf16"
+    }
+  ],
+  "scope": "PAST backbone and JOME/ARISE add-ons for direct evaluation; historical ablation and SCTR comparisons are provided as recorded statistical evidence.",
+  "license": "undecided",
+  "external_models": "External-system comparisons use published summaries and released-output measurements, with provider attribution in data/capacity_context.csv and data/released_geometry.csv.",
+  "protocols": {
+    "historical": "CUDA BF16 forward; FP32 parameters and PSNR reduction; channels-last; TF32 allowed; four-pixel RGB crop; native dimensions. JPEG100: round(clamp(Y,0,1)*255), Pillow quality=100,subsampling=0. Local SSIM uses FP32 11x11 sigma1.5 valid Gaussian window after crop.",
+    "controlled": "CUDA BF16 forward; FP32 parameters; contiguous; matmul TF32 disabled; float64 MSE reductions. Frozen scripts/evaluate_priority.py defines matched operators and retains original execution semantics."
+  },
+  "metric_limitations": [
+    "The released-output audit found a maximum absolute difference of 0.000228 between measured team-mean SSIM and published challenge values; exact published-score parity is not established.",
+    "LPIPS,DISTS,NIQE and historical full-pipeline latency are retained evidence, not recomputed by the minimal evaluator.",
+    "Device,PyTorch,CUDA,Pillow and precision differences can alter scores. Current controlled raw scores differ slightly from historical scores."
+  ],
+  "verification": {
+    "weights_only_load": true,
+    "strict_component_state_load": true,
+    "cpu_fp32_forward_shape": [
+      1,
+      3,
+      33,
+      41
+    ],
+    "finite_unit_range_outputs": true,
+    "parameter_counts": {
+      "past": 21737337,
+      "jome": 24763109,
+      "arise": 24800620
+    },
+    "historical_ssim_extraction": "Verbatim selected functions matched original source exactly on a synthetic RGB pair",
+    "cli_smoke": "All three historical-protocol models scored one synthetic pair and wrote native NPY/PNG/JPEG outputs on CPU; this verifies operation, not GPU score parity.",
+    "cuda_bf16_native_image_smoke": {
+      "hardware": "NVIDIA A100-SXM4-40GB",
+      "torch_version": "2.11.0+cu130",
+      "image": "val_0001",
+      "models": [
+        "past",
+        "jome",
+        "arise"
+      ],
+      "historical_status": "all three completed",
+      "historical_exact_parity": false,
+      "historical_differences": {
+        "past": {
+          "raw_psnr_delta_db": 0.00017360408619992995,
+          "raw_ssim_delta": 8.940696716308594e-07,
+          "jpeg100_psnr_delta_db": -0.0020643848810308896,
+          "jpeg100_ssim_delta": 2.5033950805664062e-06
+        },
+        "jome": {
+          "raw_psnr_delta_db": -0.0013330721789301947,
+          "raw_ssim_delta": -8.940696716308594e-07,
+          "jpeg100_psnr_delta_db": -0.0015273177625161338,
+          "jpeg100_ssim_delta": 1.0609626770019531e-05
+        },
+        "arise": {
+          "raw_psnr_delta_db": -0.0003470823597240269,
+          "raw_ssim_delta": 5.364418029785156e-07,
+          "jpeg100_psnr_delta_db": -0.0012692960802382913,
+          "jpeg100_ssim_delta": 5.424022674560547e-06
+        }
+      },
+      "full_benchmark_repeated": false
+    },
+    "controlled_loader_final_patch": {
+      "status": "not_executed",
+      "reason": "Colab websocket connection loss prevented execution of the final controlled-loader GPU recheck.",
+      "patched_evaluator_sha256": "d55c698558f32c3ac77be9b73eed74b8dd1dc5292801433bc253954e1fef467a",
+      "change": "Controlled load_rgb follows the frozen evaluator: transfer the uint8 tensor to the device, cast to float32, then divide by 255. Historical loading is unchanged."
+    },
+    "frozen_qualitative_export": {
+      "images": [
+        "val_0001",
+        "val_0002",
+        "val_0003",
+        "val_0248",
+        "val_0244"
+      ],
+      "max_absolute_mse_difference_from_archived_records": 3.198396408832238e-17,
+      "max_absolute_psnr_difference_db": 2.1316282072803006e-13,
+      "interpretation": "Native output exporter uses frozen evaluate_priority.py; distinct from the minimal direct CLI smoke test."
+    }
+  },
+  "model_source_sha256": {
+    "model/project/src/benefitsirr/utils.py": "8a8ce31217dc11885e941dbfc42457dea058eff524fe36fdaa75146491fae932",
+    "model/project/revision_v5/joint_output_moe/model.py": "361c7239c5ca1ba5957472f98830fae022ef3bda10dec2f90640b7c369c7e6c6",
+    "model/project/revision_v2/past_rr/model.py": "364bb0d8a0aa2d9f958979590f9e3d58826196d6415073f5958a6e2b21cccac0",
+    "model/project/revision_v4/arise_rr/model.py": "262685effc879af62f3de69d9d8cfe07b4d9c123f94ddcddec74ef68d5f47b4f"
+  },
+  "evaluation_script_sha256": "d55c698558f32c3ac77be9b73eed74b8dd1dc5292801433bc253954e1fef467a",
+  "code_author_orcid": "0000-0002-6646-9907",
+  "code_author_email": "454762251@qq.com",
+  "repository": "https://github.com/RuiziWang0923/operator-aware-restoration"
+}

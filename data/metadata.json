@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "checkpoint_sha256": {
+    "base": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
+    "jome": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c"
+  },
+  "evaluator_sha256": "c9a12d6439860e8f51c24ab89232a1f907f381c60554184dd4ccbb9558517852",
+  "manifest_sha256": "330c80155ba5eeea4d9ded31ef004fe8dcb70d3eed24baf886551aba01dc8216",
+  "base_epoch": 159,
+  "jome_epoch": 80,
+  "base_config": {
+    "width": 48,
+    "encoder_blocks": [
+      1,
+      1,
+      4
+    ],
+    "bottleneck_naf_blocks": 2,
+    "transformer_blocks": 10,
+    "decoder_blocks": [
+      4,
+      1,
+      1
+    ],
+    "allocator_groups": 8,
+    "allocator_window": 16,
+    "allocator_stride": 8,
+    "transformer_heads": 8,
+    "output_residual_scale": 0.1
+  },
+  "jome_config": {
+    "evidence_channels": 18,
+    "experts": 4,
+    "shared_width": 64,
+    "shared_half_width": 128,
+    "shared_quarter_width": 192,
+    "shared_full_blocks": 2,
+    "shared_half_blocks": 2,
+    "shared_quarter_blocks": 3,
+    "shared_attention_blocks": 2,
+    "shared_attention_heads": 4,
+    "expert_blocks": 2,
+    "residual_cap": 0.1,
+    "router_width": 40,
+    "router_blocks": 2,
+    "router_attention_blocks": 1,
+    "router_attention_heads": 4,
+    "dense_through_epoch": 8,
+    "initial_temperature": 1.0,
+    "final_temperature": 0.5,
+    "target_epoch": 80
+  },
+  "torch_version": "2.11.0+cu130",
+  "device": "cuda",
+  "device_name": "NVIDIA A100-SXM4-40GB",
+  "precision": "CUDA BF16 autocast; model parameters FP32",
+  "gram_order": [
+    "expert_0",
+    "expert_1",
+    "expert_2",
+    "expert_3",
+    "base",
+    "input"
+  ],
+  "replay_vectors": {
+    "uniform4": [
+      0.25,
+      0.25,
+      0.25,
+      0.25,
+      0,
+      0
+    ],
+    "uniform6": [
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666
+    ],
+    "prespecified_1234": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0,
+      0
+    ]
+  },
+  "eval_protocol": {
+    "batch_size": 1,
+    "native_shape": true,
+    "border_crop": 4,
+    "rgb_range": [
+      0,
+      1
+    ],
+    "metrics": "raw RGB; float64 reductions; max_val=1",
+    "routing_epoch": 80,
+    "phase": "evaluation",
+    "training": false,
+    "torch_compile": false,
+    "geometry": "a=MSE(T,I), b=MSE(Y,I), d=mean((Y-I)*(T-I)); MSE(Y,T)=a+b-2d",
+    "reachability": "input identity target: mean(max(abs(B-I)-.1,0)^2); separate native BF16 coordinate-envelope audit",
+    "clipping_bound": "RMS(Uo-Ur)<=RMS(mean_k abs(clip(B+rk)-(B+rk))); MAE<=mean candidate clipping absolute",
+    "e1_arithmetic": "Matched Ur/Uo/Yr/Yo operators all FP32 on fixed BF16-forward residuals and native-dtype bilinearly interpolated weights; jome separately retains native deployment output",
+    "e1_mse_interaction": "[MSE(Yr,T)-MSE(Ur,T)]-[MSE(Yo,T)-MSE(Uo,T)]",
+    "gram": "6x6 symmetric float64 Gram of candidate errors; mean over cropped RGB coordinates",
+    "psnr_zero_mse": "null means positive infinity",
+    "jpeg": "omitted",
+    "lpips": "omitted"
+  },
+  "retained": "Per-image Gram and scalar sufficient statistics; frozen checkpoints and inputs rerunnable. Raw residuals/native tensors NOT persisted.",
+  "limitations": [
+    "No globally fitted residual-space mixture; no training.",
+    "Gram supports global output-space convex combinations of six saved candidate definitions only; spatial/residual fits require rerun.",
+    "Checkpoint EMA identity relies on supplied selected addon checkpoint provenance.",
+    "BF16 native residual-cap/weight rounding can weaken strict eps=.1 envelope; both strict and measured-envelope bounds reported.",
+    "Time budget checked between images; one native forward may overrun budget."
+  ],
+  "manifest_count": 800,
+  "selected_count": 800,
+  "completed_count": 800,
+  "requested_limit": 0,
+  "max_seconds": 570.0,
+  "sessions": [
+    {
+      "started_utc": "2026-10-13T09:30:30Z",
+      "resume": false,
+      "initial_completed": 0,
+      "elapsed_seconds": 9.442448936999881,
+      "new_completed": 8,
+      "status": "complete"
+    },
+    {
+      "started_utc": "2026-10-13T09:32:01Z",
+      "resume": true,
+      "initial_completed": 8,
+      "elapsed_seconds": 297.00077975599993,
+      "new_completed": 792,
+      "status": "complete"
+    }
+  ],
+  "status": "complete",
+  "elapsed_seconds_this_session": 297.0002873789997,
+  "completed_selected_count": 800,
+  "elapsed_seconds_all_sessions": 306.4432286929998
+}
