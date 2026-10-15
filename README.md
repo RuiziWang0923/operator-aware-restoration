@@ -2,7 +2,7 @@
 
 Ruizi Wang · [ORCID 0000-0002-6646-9907](https://orcid.org/0000-0002-6646-9907) · [454762251@qq.com](mailto:454762251@qq.com)
 
-This repository accompanies the manuscript and provides PAST, JOME and ARISE implementations and evaluation weights, native-resolution inference, the paper's 800-image operator records, statistical replay, and editable manuscript sources. Its reproducibility scope is evaluation and analysis; model training is not included.
+This code and data repository accompanies the paper and provides PAST, JOME and ARISE implementations and evaluation weights, native-resolution inference, the paper's 800-image operator records, and statistical replay. Its reproducibility scope is evaluation and analysis; model training is not included.
 
 | Path | Contents |
 |---|---|
@@ -10,8 +10,7 @@ This repository accompanies the manuscript and provides PAST, JOME and ARISE imp
 | `checkpoints/` | Evaluation-weight download links and checksums |
 | `data/` | Per-image sufficient statistics, split manifest and attributed comparison summaries |
 | `scripts/` | Benchmark inference, operator evaluation and numerical replay |
-| `manuscript/` | Manuscript source, bibliography and six publication figure PDFs |
-| [DATA.md](DATA.md) | Evidence dictionary, protocols, manuscript mapping and limitations |
+| [DATA.md](DATA.md) | Evidence dictionary, protocols, paper mapping and limitations |
 
 ## Replay the paper's results
 
@@ -22,9 +21,9 @@ python -m pip install -r requirements.txt
 python scripts/reproduce.py
 ```
 
-The command validates all 800 records and their split membership, fits mixtures using only the 300 selection images, and writes eight table CSVs, five quantitative plot PDFs and `results.json` under `outputs/`. It checks all 208 displayed numeric table values at their stated rounding precision, including Table 3 interval endpoints. The conceptual framework table has no numerical replay. Figure 4 is supplied artwork; its four purposefully selected examples and source-image hashes are documented in `data/qualitative_examples.json`.
+The command validates all 800 records and their split membership, fits mixtures using only the 300 selection images, and writes eight table CSVs, five quantitative plot PDFs and `results.json` under `outputs/`. It checks all 208 numeric table reference values in `data/reference_tables.json` at their stated rounding precision, including Table 3 interval endpoints. The conceptual framework table has no numerical replay. Records for the four purposefully selected examples discussed in Figure 4 are documented in `data/qualitative_examples.json`.
 
-The replay reconstructs the manuscript's bootstrap protocol and mean-PSNR optimization from the retained records. The original mean-PSNR initialization seed/distribution and manuscript bootstrap implementation are unavailable; the replay matches the displayed coefficients and intervals. Mean-PSNR fitting is nonconvex and has no global-optimality guarantee. [DATA.md](DATA.md) explains the distinct original-analysis interval and uncertainty limits. The replay was tested with Python 3.14, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9.
+The replay reconstructs the paper's bootstrap protocol and mean-PSNR optimization from the retained records. The original mean-PSNR initialization seed/distribution and paper bootstrap implementation are unavailable; the replay matches the displayed coefficients and intervals. Mean-PSNR fitting is nonconvex and has no global-optimality guarantee. [DATA.md](DATA.md) explains the distinct original-analysis interval and uncertainty limits. The replay was tested with Python 3.14, NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9.
 
 ## Evaluate the models
 
@@ -65,16 +64,6 @@ This evaluates the supplied PAST/JOME checkpoints and writes matched-operator, G
 ```bash
 python scripts/analyze_operators.py --input outputs/operators/per_image.jsonl --output outputs/operator-analysis
 ```
-
-## Build the manuscript
-
-With pdfLaTeX and BibTeX installed:
-
-```bash
-bash manuscript/build.sh
-```
-
-The output is `manuscript/manuscript.pdf`. The editable source is `manuscript/manuscript.tex`; bibliography and figure PDFs are included. Build products are ignored.
 
 ## License and citation
 

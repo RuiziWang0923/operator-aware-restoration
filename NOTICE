@@ -26,13 +26,13 @@ Upstream MIT license: https://github.com/swz30/Restormer/blob/main/LICENSE.md
 
 The upstream license text is reproduced below. These retained notices cover corresponding upstream material and do not claim upstream authorship of the repository's original additions.
 
-## OpenRR-5k and Figure 4
+## OpenRR-5k and released-output measurements
 
-The input and reference images in `manuscript/figures/Fig4.pdf` are from OpenRR-5k by Jie Cai and colleagues. The KLETech-CEVI panels are that team's released predictions, obtained from the official OpenRR-5k `NTIRE2026_SIRR_TopTeam_Results.zip` collection. PAST/JOME panels are this project's predictions on OpenRR-5k inputs. Image IDs, hashes, and display conversion are recorded in `data/qualitative_examples.json`.
+The evaluation records in this repository use OpenRR-5k by Jie Cai and colleagues and released challenge-system outputs, including KLETech-CEVI predictions from the official OpenRR-5k `NTIRE2026_SIRR_TopTeam_Results.zip` collection. Dataset images and released prediction images are obtained separately from their providers. Image IDs, hashes, measured scores and display-conversion metadata for the illustrative Figure 4 examples are recorded in `data/qualitative_examples.json`.
 
 Provider: https://huggingface.co/datasets/qiuzhangTiTi/OpenRR-5k
 
-The provider's dataset card identifies CC BY-NC-SA 4.0 and lists the team-output archive as a dataset component. The imagery retains CC BY-NC-SA 4.0 terms. The photographic panels were arranged and labeled for comparison; PAST/JOME panels were processed by the corresponding models. No endorsement by the dataset providers or external teams is implied.
+The provider's dataset card identifies CC BY-NC-SA 4.0 and lists the team-output archive as a dataset component. These source materials retain their applicable terms. No endorsement by the dataset providers or external teams is implied.
 
 License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 

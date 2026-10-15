@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this repository and its accompanying manuscript when using these models or evaluation records."
+message: "Please cite this repository and its accompanying paper when using these models or evaluation records."
 type: software
 title: "From correction capacity to correction control: operator-aware evaluation of image restoration"
 authors:
