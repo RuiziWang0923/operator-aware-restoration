@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this repository and its accompanying manuscript when using these models or evaluation records."
+type: software
+title: "From correction capacity to correction control: operator-aware evaluation of image restoration"
+authors:
+  - family-names: Wang
+    given-names: Ruizi
+    email: 454762251@qq.com
+    orcid: "https://orcid.org/0000-0002-6646-9907"
+repository-code: "https://github.com/RuiziWang0923/operator-aware-restoration"
