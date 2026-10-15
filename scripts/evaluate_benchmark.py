@@ -21,10 +21,10 @@ import torch
 from benchmark_metrics import ssim_value
 
 REPO = Path(__file__).resolve().parents[1]
-sys.path[:0] = [str(REPO / 'model/project'), str(REPO / 'model/project/src')]
-from revision_v2.past_rr.model import PASTRR, PASTRRConfig
-from revision_v5.joint_output_moe.model import JOMERR, JOMERRConfig
-from revision_v4.arise_rr.model import ARISERR, ARISERRConfig
+sys.path.insert(0, str(REPO))
+from model.past import PASTRR, PASTRRConfig
+from model.jome import JOMERR, JOMERRConfig
+from model.arise import ARISERR, ARISERRConfig
 
 
 def sha256(path: Path) -> str:

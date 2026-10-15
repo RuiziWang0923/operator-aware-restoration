@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize
 
-from analyze_priority import (CANDIDATES, RNG_SEED, ROLES, analyze,
+from analyze_operators import (CANDIDATES, RNG_SEED, ROLES, analyze,
                               bootstrap_mean, contrast, fit_simplex, psnr,
                               read_records)
 
@@ -38,8 +38,16 @@ def write_csv(path, data):
 
 def verify_manuscript_tables(tables):
     """Compare displayed manuscript rows at their stated rounding precision."""
+    manuscript = (ROOT / "manuscript/manuscript.tex").read_text()
+    labels = {"fixed_backbone": "fixed", "calibrated_scores": "calibrated"}
     def displayed(name):
-        text=(ROOT/f"manuscript/tables/{name}.tex").read_text()
+        label = labels.get(name, name)
+        blocks = [block for block in re.findall(
+            r"\\begin\{table\}.*?\\end\{table\}", manuscript, re.DOTALL)
+            if f"\\label{{tab:{label}}}" in block]
+        if len(blocks) != 1:
+            raise ValueError(f"Expected one manuscript table with label tab:{label}")
+        text = blocks[0]
         lines=[x for x in text.splitlines() if " & " in x]
         return [[float(v) for v in re.findall(r"(?<![A-Za-z_])[-+]?\d+\.\d+|(?<![A-Za-z_])\d+",x.split(" & ",1)[1])] for x in lines if re.search(r" & [-\d]",x)]
     checks=0
@@ -66,6 +74,8 @@ def verify_manuscript_tables(tables):
         compare([r[k] for k in ["active","n","mean_bound_x1e4","rgb_percent","active_input_loss","input_loss_n"]],e,[0,0,3,2,0,0])
     for r,e in zip(tables["capacity"],displayed("capacity")):
         compare([float(r["parameters_m"]),float(r["psnr"])],e,[2,3])
+    if checks != 208:
+        raise ValueError(f"Expected 208 manuscript numeric comparisons, got {checks}")
     return checks
 
 
@@ -222,7 +232,7 @@ def main():
     tables["fixed_backbone"].sort(key=lambda r:fixed_order.index(r["method"]))
     tables["operators"]=[];tables["quadrants"]=[];tables["reachability"]=[]
     for role_index,role in enumerate(ROLES):
-        s=summary["splits"][role];a=arrays[role];c=s["comparisons"]["E1 matched residual weighting"]
+        s=summary["splits"][role];a=arrays[role];c=s["comparisons"]["matched residual weighting"]
         ci=bootstrap_mean(psnr(a["Yr"])-psnr(a["Ur"]),np.random.default_rng(RNG_SEED+role_index),5000)
         tables["operators"].append({"split":role,"n":s["n"],"Ur_minus_B":float((psnr(a["Ur"])-psnr(a["base"])).mean()),
             "Yr_minus_B":float((psnr(a["Yr"])-psnr(a["base"])).mean()),"Yr_minus_Ur":c["mean_psnr_gain_db"],"ci_low":ci[0],"ci_high":ci[1]})
@@ -258,8 +268,8 @@ def main():
     result={"integrity":integrity,"manuscript_numeric_values_checked":checked_values,"calibration":fits,"tables":tables,"contrasts":contrasts,
         "source_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/"data").iterdir() if p.is_file()},
         "coverage":"eight numeric manuscript tables; quantitative data for Figures 1,2,3,5,6; Figure 4 remains supplied artwork",
-        "archived_priority_E1_intervals":{role:summary["splits"][role]["comparisons"]["E1 matched residual weighting"]["psnr_gain_ci95"] for role in ROLES},
-        "interval_note":"Original priority-analysis intervals differ from the later manuscript (official upper endpoint 0.015774 versus displayed 0.0150). The documented manuscript protocol resets the RNG to seed 20261013 plus role index (selection=0, official=1, locked=2) for every contrast; 5000 paired resamples. This implementation of the documented recipe reproduces all displayed Table 3 intervals and the textual F4P intervals. It is a reconstructed analysis, not the unavailable original manuscript authoring script."}
+        "recorded_matched_operator_intervals":{role:summary["splits"][role]["comparisons"]["matched residual weighting"]["psnr_gain_ci95"] for role in ROLES},
+        "interval_note":"Recorded analysis intervals differ from the later manuscript (official upper endpoint 0.015774 versus displayed 0.0150). The documented manuscript protocol resets the RNG to seed 20261013 plus role index (selection=0, official=1, locked=2) for every contrast; 5000 paired resamples. This implementation of the documented recipe reproduces all displayed Table 3 intervals and the textual F4P intervals. The retained sufficient statistics support an independent reconstruction of the reported values."}
     (out/"results.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n")
     print(json.dumps({"records":len(records),"tables":len(tables),"quantitative_figures":5,"manuscript_values_checked":checked_values,"integrity_passed":True,"psnr_weights_match_manuscript":True}))
 

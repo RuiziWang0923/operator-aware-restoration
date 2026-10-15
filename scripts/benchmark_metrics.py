@@ -1,4 +1,4 @@
-"""Historical local SSIM, extracted verbatim from t0_nafnet/epoch_evaluation.py.
+"""Local RGB SSIM used for the reported restoration evaluation.
 
 The four-pixel crop and FP32 valid Gaussian filtering preserve the original
 local implementation. Its documented difference from challenge SSIM remains.
@@ -40,8 +40,8 @@ def ssim_value(
     """RGB SSIM matching the standard 11x11, sigma=1.5 implementation.
 
     Inputs are in [0, 1]. The official OpenRR evaluator crops four pixels before
-    calling pyiqa with test_y_channel=False; Stage 3D validates this independent
-    implementation against every released team output before it is reportable.
+    calling pyiqa with test_y_channel=False. This implementation uses FP32
+    valid Gaussian filtering; see the documented released-output comparison.
     """
 
     prediction = _metric_view(prediction, border).float()
