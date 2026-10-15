@@ -1,8 +1,7 @@
 {
   "schema_version": 1,
-  "manuscript_version": "v4.1.1",
   "figure": 4,
-  "selection": "Purposeful illustrative selection; not a representative sample or an estimate of prevalence. Selected after visual review of five exported candidates, including val_0244 which was not used. val_0004 from the preceding figure was replaced by val_0248.",
+  "selection": "Purposeful illustrative selection of four native-resolution examples; not a representative sample or an estimate of prevalence.",
   "checkpoint_sha256": {
     "base": "7e4c5e2eef01556808f8318879cbfc4b01816d7ccdbacfacdf0b034495905b65",
     "jome": "f9f4cea2edddbbec4643eafd0399f4f6c24a446b9af83b2286c21b28efed9e0c"
@@ -15,7 +14,7 @@
     "batch_size": 1,
     "border_crop_for_metrics": 4,
     "psnr": "raw RGB, float64 MSE reduction, max_val=1",
-    "ssim": "raw RGB FP32 Gaussian 11x11 sigma1.5 valid convolution, border4; copied from project epoch evaluator",
+    "ssim": "raw RGB FP32 Gaussian 11x11 sigma1.5 valid convolution after a four-pixel crop",
     "routing_epoch": 80,
     "phase": "evaluation",
     "training": false,
@@ -39,7 +38,6 @@
       "display": "full native frame; no crop, enhancement, or contrast adjustment",
       "input_path": "data/val/input/val_0001.jpg",
       "target_path": "data/val/target/val_0001.jpg",
-      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0001.jpg",
       "source_sha256": {
         "input": "5baa9533ce61f432d69deedcd6f7d3aa5f012d51b3b8611d091bc58b39cb1fe1",
         "target": "3963cf27dec4231ebb052856c0afa570c2c0367d69b9cb8c01f7e3d1dcc39f58",
@@ -86,6 +84,12 @@
           "mse_absolute_difference": 0.0,
           "psnr_difference_db": 0.0
         }
+      },
+      "released_output": {
+        "system": "KLETech-CEVI",
+        "filename": "val_0001.jpg",
+        "encoding": "original released bytes",
+        "redistribution": "Original released files are not included; their hashes identify the Figure 4 sources."
       }
     },
     {
@@ -97,7 +101,6 @@
       "display": "full native frame; no crop, enhancement, or contrast adjustment",
       "input_path": "data/val/input/val_0002.jpg",
       "target_path": "data/val/target/val_0002.jpg",
-      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0002.jpg",
       "source_sha256": {
         "input": "0d9b6fb515c927e7a2b8309e3fd4bcfbc4a53b3115bdca3c6dee6db01846165d",
         "target": "13acd6d641905441e34409a73ce13e0f47bbcb39426c71db4715561bbccdcc80",
@@ -144,6 +147,12 @@
           "mse_absolute_difference": 0.0,
           "psnr_difference_db": 0.0
         }
+      },
+      "released_output": {
+        "system": "KLETech-CEVI",
+        "filename": "val_0002.jpg",
+        "encoding": "original released bytes",
+        "redistribution": "Original released files are not included; their hashes identify the Figure 4 sources."
       }
     },
     {
@@ -155,7 +164,6 @@
       "display": "full native frame; no crop, enhancement, or contrast adjustment",
       "input_path": "data/val/input/val_0003.jpg",
       "target_path": "data/val/target/val_0003.jpg",
-      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0003.jpg",
       "source_sha256": {
         "input": "c6ff77c45f279b272f84007ee568438b38b33ea57a12c8a48ee7e18b49bd3900",
         "target": "979b5819e5db9d9d9f673b51d34fa1095133827cdc5c5173ed451a07148d252c",
@@ -202,6 +210,12 @@
           "mse_absolute_difference": 0.0,
           "psnr_difference_db": 0.0
         }
+      },
+      "released_output": {
+        "system": "KLETech-CEVI",
+        "filename": "val_0003.jpg",
+        "encoding": "original released bytes",
+        "redistribution": "Original released files are not included; their hashes identify the Figure 4 sources."
       }
     },
     {
@@ -209,11 +223,10 @@
       "split_role": "official",
       "height": 1024,
       "width": 1024,
-      "selection_reason": "Connects the previously reported positive gain over PAST and negative gain over input to a near-identity image with visually subtle edits.",
+      "selection_reason": "Near-identity example with positive gain over PAST, negative gain over input and visually subtle edits.",
       "display": "full native frame; no crop, enhancement, or contrast adjustment",
       "input_path": "data/val/input/val_0248.jpg",
       "target_path": "data/val/target/val_0248.jpg",
-      "released_kletech_path": "benchmarks/ntire2026_top_teams/6_KLETech-CEVI/val_300_output/val_0248.jpg",
       "source_sha256": {
         "input": "a9dad068f34743c00ae897a182e88c7986395b08eb1f79f66a98e86bee1d18ef",
         "target": "bd976fc60b62296d4175e00fecc791a9d37ff770a2ff875f676ba1ec776902d5",
@@ -260,7 +273,17 @@
           "mse_absolute_difference": 0.0,
           "psnr_difference_db": 0.0
         }
+      },
+      "released_output": {
+        "system": "KLETech-CEVI",
+        "filename": "val_0248.jpg",
+        "encoding": "original released bytes",
+        "redistribution": "Original released files are not included; their hashes identify the Figure 4 sources."
       }
     }
-  ]
+  ],
+  "source_roles": {
+    "input_and_target": "External OpenRR-5k image/reference pairs; paths are relative to the dataset root.",
+    "released_kletech": "Released KLETech-CEVI output encoding, identified by system, filename and SHA-256. Figure 4 supplies the corresponding publication artwork."
+  }
 }

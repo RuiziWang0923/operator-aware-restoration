@@ -1,8 +1,8 @@
 model,label,parameters_m,data_scope,psnr,ssim,published_psnr,published_ssim,score_source,parameter_source,source_url
 refineX,refineX,8.2,OpenRR only,30.5993,0.9715,30.5993,0.9715,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
-PAST,PAST,21.737337,OpenRR only,34.190890171890075,0.9722188121080398,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
-JOME,JOME,24.763109,OpenRR only,34.34745288817054,0.9725808314482371,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
-ARISE,ARISE,24.80062,OpenRR only,34.22573810921136,0.9726197409629822,,,local JPEG evaluation,archived model count,source_data/run_metrics.csv
+PAST,PAST,21.737337,OpenRR only,34.190890171890075,0.9722188121080398,,,local JPEG evaluation,archived model count,data/run_metrics.csv
+JOME,JOME,24.763109,OpenRR only,34.34745288817054,0.9725808314482371,,,local JPEG evaluation,archived model count,data/run_metrics.csv
+ARISE,ARISE,24.80062,OpenRR only,34.22573810921136,0.9726197409629822,,,local JPEG evaluation,archived model count,data/run_metrics.csv
 SiGMoid,SiGMoid,26.13,OpenRR only,34.2792,0.9749,34.2792,0.9749,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
 6_KLETech-CEVI,KLETech-CEVI,27.4,OpenRR only,34.537693726479894,0.9746527274449668,34.5375,0.9748,local released-output evaluation,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3
 PSU,PSU,45.599,OpenRR only,34.5148,0.9746,34.5148,0.9746,published Table 2,team-reported Table 3,https://arxiv.org/html/2604.10321v3#S3.T3

@@ -111,39 +111,19 @@
     "jpeg": "omitted",
     "lpips": "omitted"
   },
-  "retained": "Per-image Gram and scalar sufficient statistics; frozen checkpoints and inputs rerunnable. Raw residuals/native tensors NOT persisted.",
+  "retained": "Per-image Gram matrices and scalar sufficient statistics. Included checkpoints support rerunning inference after obtaining the original image/reference pairs. Raw residuals and native tensors are not included.",
   "limitations": [
     "No globally fitted residual-space mixture; no training.",
     "Gram supports global output-space convex combinations of six saved candidate definitions only; spatial/residual fits require rerun.",
     "Checkpoint EMA identity relies on supplied selected addon checkpoint provenance.",
-    "BF16 native residual-cap/weight rounding can weaken strict eps=.1 envelope; both strict and measured-envelope bounds reported.",
-    "Time budget checked between images; one native forward may overrun budget."
+    "BF16 native residual-cap/weight rounding can weaken strict eps=.1 envelope; both strict and measured-envelope bounds reported."
   ],
   "manifest_count": 800,
   "selected_count": 800,
   "completed_count": 800,
-  "requested_limit": 0,
-  "max_seconds": 570.0,
-  "sessions": [
-    {
-      "started_utc": "2026-10-13T09:30:30Z",
-      "resume": false,
-      "initial_completed": 0,
-      "elapsed_seconds": 9.442448936999881,
-      "new_completed": 8,
-      "status": "complete"
-    },
-    {
-      "started_utc": "2026-10-13T09:32:01Z",
-      "resume": true,
-      "initial_completed": 8,
-      "elapsed_seconds": 297.00077975599993,
-      "new_completed": 792,
-      "status": "complete"
-    }
-  ],
   "status": "complete",
-  "elapsed_seconds_this_session": 297.0002873789997,
   "completed_selected_count": 800,
-  "elapsed_seconds_all_sessions": 306.4432286929998
+  "elapsed_seconds_all_sessions": 306.4432286929998,
+  "evaluator_identity_scope": "SHA-256 of the original evaluator executed for these 800 records. scripts/evaluate_operators.py is the publication interface and has been reorganized; its current hash is recorded separately in data/provenance.json.",
+  "timing_scope": "Single recorded evaluation, including model loading and evaluator diagnostics, accumulated across two execution segments; not a repeated latency benchmark."
 }
